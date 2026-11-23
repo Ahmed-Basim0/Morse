@@ -1,4 +1,4 @@
-const CACHE = 'morse-v4';
+const CACHE = 'morse-v5';
 const ASSETS = [
   './',
   './index.html',
@@ -28,6 +28,10 @@ self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (url.origin !== location.origin) return;
   e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request))
+    caches.match(e.request, { ignoreSearch: true }).then(cached => {
+      if (cached) return cached;
+      if (e.request.mode === 'navigate') return caches.match('./index.html');
+      return fetch(e.request);
+    })
   );
 });
