@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="Icon-192.png">
+<link rel="apple-touch-icon" href="Icon_180.png">
 <meta name="description" content="تعلّم شفرة مورس بالشجرة واللمس والتمرين، مع الغرف عبر الإنترنت.">
 <meta property="og:title" content="بطاقة شجرة مورس"><meta property="og:description" content="تعلّم شفرة مورس بالشجرة واللمس والتمرين، مع الغرف عبر الإنترنت.">
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
@@ -582,6 +582,7 @@ obAll('[data-th]').forEach(b=>b.onclick=()=>{theme=b.dataset.th==='auto'?null:b.
 $('obnext').onclick=()=>{obI<2?obShow(obI+1):obEnd()};$('obskip').onclick=obEnd;
 render();applyLang();syncX();applyTouch();applyTheme();tapeSize();
 if(!onb){$('onb').hidden=false;document.body.style.overflow='hidden';obMark();obShow(0)}
+  if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
 </script>
 </body>
 </html>
